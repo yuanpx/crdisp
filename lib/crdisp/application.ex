@@ -27,7 +27,6 @@ defmodule Crdisp.Application do
       NodeManager.add_node(node_info)
     end
 
-
     {:ok, main_sup}
   end
 end

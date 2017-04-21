@@ -54,4 +54,12 @@ defmodule NodeManager do
     {:reply, nodes, state}
   end
 
-end
+  def set_gid(gid, idcs, updelay) do
+    gid_conf = %{}
+    |> Map.put("gid", gid)
+    |> Map.put("idcs", idcs)
+    |> Map.put("updelay", updelay)
+    |> Map.put("uptime", :os.timestamp())
+    DB.set_gid(gid, gid_conf)
+
+  end

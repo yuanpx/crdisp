@@ -12,7 +12,8 @@ defmodule Crdisp.Application do
     children = [
       # Starts a worker by calling: Crdisp.Worker.start_link(arg1, arg2, arg3)
       # worker(Crdisp.Worker, [arg1, arg2, arg3]),
-      worker(Mongo,[[name: :DBPool, hostname: "192.168.1.79", port: 27017, database: "crossroads"]])
+      worker(Mongo,[[name: :DBPool, hostname: "192.168.1.79", port: 27017, database: "crossroads"]]),
+      worker(Api, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

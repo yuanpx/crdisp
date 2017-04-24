@@ -17,7 +17,7 @@ defmodule Crdisp.Mixfile do
     # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger],
      mod: {Crdisp.Application, []},
-     applications: [:httpotion, :mongodb, :poolboy]
+     applications: [:httpotion, :mongodb, :poolboy, :cowboy, :plug]
 
     ]
   end
@@ -35,7 +35,9 @@ defmodule Crdisp.Mixfile do
     [
       {:httpotion, "~> 3.0.2"},
       {:mongodb, ">= 0.0.0"},
-      {:poolboy, ">= 0.0.0"}
+      {:poolboy, ">= 0.0.0"},
+      {:cowboy, "~> 1.0.3"},
+      {:plug, "~> 1.0"}
     ]
   end
 end

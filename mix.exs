@@ -37,7 +37,8 @@ defmodule Crdisp.Mixfile do
       {:mongodb, ">= 0.0.0"},
       {:poolboy, ">= 0.0.0"},
       {:cowboy, "~> 1.0.3"},
-      {:plug, "~> 1.0"}
+      {:plug, "~> 1.0"},
+      {:poison, "~> 3.1"}
     ]
   end
 end

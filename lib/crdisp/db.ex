@@ -9,12 +9,12 @@ defmodule DB do
   end
 
   def set_idcs(idcs) do
-    Mongo.update_one(:DBPool, "common", %{"base" => "base"}, %{"idcs" => idcs})
+    Mongo.update_one(:DBPool, "common", %{"base" => "base"}, %{"$set" => %{"idcs" => idcs}}, upsert: true)
 
   end
 
   def set_rapi(rapi) do
-    Mongo.update_one(:DBPool, "common", %{"base" => "base"}, %{"rapi" => rapi})
+    Mongo.update_one(:DBPool, "common", %{"base" => "base"}, %{"$set" => %{"rapi" => rapi}}, upsert: true)
   end
 
   def get_all_gid() do
@@ -22,7 +22,7 @@ defmodule DB do
   end
 
   def set_gid(gid, gidconf) do
-    Mongo.update_one(:DBPool, "gidconf", %{"gid" => gid}, gidconf)
+    Mongo.update_one(:DBPool, "gidconf", %{"gid" => gid}, %{"$set": gidconf}, upsert: true)
   end
 
   def del_gid(gid) do
@@ -34,7 +34,7 @@ defmodule DB do
   end
 
   def set_node(host, node) do
-    Mongo.update_one(:DBPool, "node", %{"host" => host}, node)
+    Mongo.update_one(:DBPool, "node", %{"host" => host}, %{"$set" => node}, upsert: true)
   end
 
   def del_node(host) do

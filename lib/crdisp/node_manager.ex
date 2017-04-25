@@ -11,7 +11,7 @@ defmodule NodeManager do
   end
 
   def add_node(node_info) do
-    GenServer.call(__MODULE__, {:add_node, node_info})
+    GenServer.call({:global, __MODULE__}, {:add_node, node_info})
   end
 
   def handle_call({:add_node, node_info}, _from, state = {node_sup}) do
@@ -48,11 +48,11 @@ defmodule NodeManager do
   end
 
   def nodes() do
-    GenServer.call(__MODULE__, {:nodes})
+    GenServer.call({:global, __MODULE__}, {:nodes})
   end
 
   def del_node(host) do
-    GenServer.call(__MODULE__, {:del_node, host})
+    GenServer.call({:global, __MODULE__}, {:del_node, host})
   end
 
   def set_gid(gid, idcs, updelay) do

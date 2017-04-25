@@ -10,6 +10,7 @@ defmodule NodeWorker do
     IO.puts("add #{node_id}")
     true = :ets.insert(:node_table, {node_id, self()})
     :timer.send_after(20000, :tick)
+    node_info =  %{node_info | "synctime" => 0}
     {:ok, node_info}
   end
 
@@ -45,6 +46,7 @@ defmodule NodeWorker do
   end
 
   def call(host, ac, params) do
+    IO.puts("http request #{host}")
     url = "http://#{host}/#{ac}"
     Httpotion.get(url, query: params)
   end

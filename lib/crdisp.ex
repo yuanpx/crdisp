@@ -9,7 +9,7 @@ defmodule Crdisp do
   ## Examples
 
       iex> Crdisp.hello
-      :world
+ 
 
   """
   def hello do

@@ -33,7 +33,9 @@ defmodule Crdisp.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpotion, "~> 3.0.2"},
+#      {:httpotion, "~> 3.0.2"},
+      {:httpoison, "~> 0.11.2"},
+      {:hackney, "~> 1.8"},
       {:mongodb, ">= 0.0.0"},
       {:poolboy, ">= 0.0.0"},
       {:cowboy, "~> 1.0.3"},
